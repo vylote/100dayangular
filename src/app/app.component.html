@@ -32,3 +32,21 @@ btn.addEventListener('click', handler) -->
 <br><br>
 <!-- [(ngModel)] = [ngModel]="name"+(ngModelChange)="name = $event" (property + event binding) -->
 <input type="text" [ngModel]="name" (ngModelChange)="name = $event"/>
+
+<br>
+<!-- day4: -->
+<app-hello *ngIf="user.age >= 13; else noPG13" test="user.name"></app-hello>
+
+<ng-template #noPG13>
+  <div>Bạn không thể xem nội dung PG-13</div>
+</ng-template>
+
+<!-- Với cú pháp sử dụng dấu * ở trên, có thể các bạn sẽ thấy nó khác lạ, nhưng thực tế, nó được gọi là Syntactic sugar 
+(giúp nhìn code dễ hiểu, dễ đọc hơn chẳng hạn) được chuyển đổi sang dạng property binding như sau: -->
+<ng-template [ngIf]="user.age >= 13" [ngIfElse]="noPG13">
+  <div *ngIf="user.age >= 13; else noPG13">Bạn có thể xem nội dung PG-13</div>
+</ng-template>
+
+<button (click)="user.age = user.age-1">-</button>
+Age: {{ user.age }}
+<button (click)="user.age = user.age+1">+</button>
