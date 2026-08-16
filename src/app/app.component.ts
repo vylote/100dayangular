@@ -8,7 +8,6 @@ import { Component, VERSION } from '@angular/core';
 export class AppComponent {
   name = 'Angular' + VERSION.major;
 
-  isDanger = false;
-  isWarning = false;
-  classes = "box red-border yellow-background";
+  currentProgress = 70;
+  currentProgressColor = 'green';
 }

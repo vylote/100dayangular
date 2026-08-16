@@ -1,35 +1,6 @@
-<button (click)="isDanger = !isDanger">Danger</button>
+<app-progress-bar></app-progress-bar>
 <br>
-<button (click)="isWarning = !isWarning">Warning</button>
+<app-progress-bar [progress]="currentProgress" [progressColor]="currentProgressColor"></app-progress-bar>  
+<button (click)="currentProgress = currentProgress+1">increase</button>
 <br>
-
-<div class="box" [class.red-border]="isDanger" [class.yellow-background]="isWarning"></div>
-
-<!-- 
-  [class.ten-class]
-  [class]="array"
-  [class]="object" { [ten-class:string] : boolean }
-  [class]="variable"
--->
-
-<div class="box" [class]="['red-border', 'yellow-background']"></div>
-
-<div class="box" [class]="{'red-border': isDanger, 'yellow-background': isWarning}"></div>
-
-<div class="box" [class]="classes"></div>
-
-<!--
-  [style.tenStyle]
-  [style.ten-style]
-  [style.tenStyle.unit]
-  [style]="object" { [ten-style : string] : string }
-  [style.css-variable]
--->
-
-<p [style.color]="'red'" [style.background-color]="'yellow'" [style.fontSize.px]="20">
-  Em đừng khóc
-</p>
-
-<p [style.color]="'var(--text-color)'" [style.background-color]="'yellow'" [style.fontSize.px]="20">
-  Em đừng khóc
-</p>
+<button (click)="currentProgress = currentProgress-1">decrease</button>
