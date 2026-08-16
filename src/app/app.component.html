@@ -1,81 +1,35 @@
-<p>hello angular {{ name }}</p>
+<button (click)="isDanger = !isDanger">Danger</button>
+<br>
+<button (click)="isWarning = !isWarning">Warning</button>
+<br>
 
-<!--
-  $implicit: item (Implicit Context variable)
+<div class="box" [class.red-border]="isDanger" [class.yellow-background]="isWarning"></div>
+
+<!-- 
+  [class.ten-class]
+  [class]="array"
+  [class]="object" { [ten-class:string] : boolean }
+  [class]="variable"
 -->
 
-<ul>
-  <ng-container *ngIf="users.length > 0; else noUsers">
-  <li
-    *ngFor="
-      let user of users;
-      index as idx;
-      count as total;
-      first as isFirst;
-      last as isLast;
-      even as isEven;
-      odd as isOdd
-    "
-  >
-    <span>{{ user.name }} - {{ user.id }} - {{ user.phone }}</span>
-    <br />
-    <span>at index {{ idx }} out of {{ total }}</span>
-    <br />
-    <span *ngIf="isEven">i'm even num</span>
-    <br />
-    <span *ngIf="isOdd">i'm odd num</span>
-    <br />
-    <span *ngIf="isFirst">i'm first</span>
-    <br />
-    <span *ngIf="isLast">i'm last</span>
-    <br /><br />
-  </li>
-  </ng-container>
-  <ng-template #noUsers>
-    no users
-  </ng-template>
-</ul>
+<div class="box" [class]="['red-border', 'yellow-background']"></div>
 
-<button *ngFor="let tag of tags; last as isLast" [class.right-margin]="!isLast">
-  {{ tag }}
-</button>
+<div class="box" [class]="{'red-border': isDanger, 'yellow-background': isWarning}"></div>
 
-tương tự *ngFor cũng là cú pháp viết tắt, viết đủ sẽ là 
-<ul>
-  <ng-template
-    ngFor
-    [ngForOf]="users"
-    let-user
-    let-idx="index"
-    let-total="count"
-    let-isFirst="first"
-    let-islast="last"
-    let-isEven="even"
-    let-isOdd="odd"
-  >
-    <li
-      *ngFor="
-        let user of users;
-        index as idx;
-        count as total;
-        first as isFirst;
-        last as isLast;
-        even as isEven;
-        odd as isOdd
-      "
-    >
-      <span>{{ user.name }} - {{ user.id }} - {{ user.phone }}</span>
-      <br />
-      <span>at index {{ idx }} out of {{ total }}</span>
-      <br />
-      <span *ngIf="isEven">i'm even num</span>
-      <br />
-      <span *ngIf="isOdd">i'm odd num</span>
-      <br />
-      <span *ngIf="isFirst">i'm first</span>
-      <br />
-      <span *ngIf="isLast">i'm last</span>
-      <br /><br />
-    </li>
-  </ng-template>
-</ul>
+<div class="box" [class]="classes"></div>
+
+<!--
+  [style.tenStyle]
+  [style.ten-style]
+  [style.tenStyle.unit]
+  [style]="object" { [ten-style : string] : string }
+  [style.css-variable]
+-->
+
+<p [style.color]="'red'" [style.background-color]="'yellow'" [style.fontSize.px]="20">
+  Em đừng khóc
+</p>
+
+<p [style.color]="'var(--text-color)'" [style.background-color]="'yellow'" [style.fontSize.px]="20">
+  Em đừng khóc
+</p>
