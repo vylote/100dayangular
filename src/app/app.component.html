@@ -1,52 +1,81 @@
-{{ name }}
-<!-- expression -->
- <!-- giống với toString()  -->
-  <!-- String interpolation -->
-<p>{{ user }}</p>
-<p>{{ user.name }}</p>
-<p>{{ user.age }}</p>
+<p>hello angular {{ name }}</p>
 
-<input [type]="inputType" [value]="user.name">
-<!-- HTMLInputElement {
-  type: 'text',
-  value: 'a',
-  attributes: [],
-  ...
-} -->
+<!--
+  $implicit: item (Implicit Context variable)
+-->
 
-<!-- chia làm 2 kiểu: property [] và attribute binding -->
+<ul>
+  <ng-container *ngIf="users.length > 0; else noUsers">
+  <li
+    *ngFor="
+      let user of users;
+      index as idx;
+      count as total;
+      first as isFirst;
+      last as isLast;
+      even as isEven;
+      odd as isOdd
+    "
+  >
+    <span>{{ user.name }} - {{ user.id }} - {{ user.phone }}</span>
+    <br />
+    <span>at index {{ idx }} out of {{ total }}</span>
+    <br />
+    <span *ngIf="isEven">i'm even num</span>
+    <br />
+    <span *ngIf="isOdd">i'm odd num</span>
+    <br />
+    <span *ngIf="isFirst">i'm first</span>
+    <br />
+    <span *ngIf="isLast">i'm last</span>
+    <br /><br />
+  </li>
+  </ng-container>
+  <ng-template #noUsers>
+    no users
+  </ng-template>
+</ul>
 
-<!-- cú pháp cho js thông thường -->
+<button *ngFor="let tag of tags; last as isLast" [class.right-margin]="!isLast">
+  {{ tag }}
+</button>
 
-<!-- <button type="button" id="btnClickMe">Click me</button>
-
-const btn = document.querySelector('#btnClickMe')
-
-btn.addEventListener('click', handler) -->
-
-<!-- cú pháp angular -->
-<button type="button" (click)="handler($event)">Click me</button>
-<br><br>
-<!-- two way databing (property + event binding) -->
-<input type="text" [(ngModel)]="name"/>
-<br><br>
-<!-- [(ngModel)] = [ngModel]="name"+(ngModelChange)="name = $event" (property + event binding) -->
-<input type="text" [ngModel]="name" (ngModelChange)="name = $event"/>
-
-<br>
-<!-- day4: -->
-<app-hello *ngIf="user.age >= 13; else noPG13" test="user.name"></app-hello>
-
-<ng-template #noPG13>
-  <div>Bạn không thể xem nội dung PG-13</div>
-</ng-template>
-
-<!-- Với cú pháp sử dụng dấu * ở trên, có thể các bạn sẽ thấy nó khác lạ, nhưng thực tế, nó được gọi là Syntactic sugar 
-(giúp nhìn code dễ hiểu, dễ đọc hơn chẳng hạn) được chuyển đổi sang dạng property binding như sau: -->
-<ng-template [ngIf]="user.age >= 13" [ngIfElse]="noPG13">
-  <div *ngIf="user.age >= 13; else noPG13">Bạn có thể xem nội dung PG-13</div>
-</ng-template>
-
-<button (click)="user.age = user.age-1">-</button>
-Age: {{ user.age }}
-<button (click)="user.age = user.age+1">+</button>
+tương tự *ngFor cũng là cú pháp viết tắt, viết đủ sẽ là 
+<ul>
+  <ng-template
+    ngFor
+    [ngForOf]="users"
+    let-user
+    let-idx="index"
+    let-total="count"
+    let-isFirst="first"
+    let-islast="last"
+    let-isEven="even"
+    let-isOdd="odd"
+  >
+    <li
+      *ngFor="
+        let user of users;
+        index as idx;
+        count as total;
+        first as isFirst;
+        last as isLast;
+        even as isEven;
+        odd as isOdd
+      "
+    >
+      <span>{{ user.name }} - {{ user.id }} - {{ user.phone }}</span>
+      <br />
+      <span>at index {{ idx }} out of {{ total }}</span>
+      <br />
+      <span *ngIf="isEven">i'm even num</span>
+      <br />
+      <span *ngIf="isOdd">i'm odd num</span>
+      <br />
+      <span *ngIf="isFirst">i'm first</span>
+      <br />
+      <span *ngIf="isLast">i'm last</span>
+      <br /><br />
+    </li>
+  </ng-template>
+</ul>
