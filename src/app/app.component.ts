@@ -8,6 +8,7 @@ import { Component, VERSION } from '@angular/core';
 export class AppComponent {
   name = 'Angular' + VERSION.major;
 
-  currentProgress = 70;
-  currentProgressColor = 'green';
 }
+
+//data down: parent component tuong tac voi children component (input binding)
+//event up: children component tuong tac voi parent component
