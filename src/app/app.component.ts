@@ -7,8 +7,5 @@ import { Component, VERSION } from '@angular/core';
 })
 export class AppComponent {
   name = 'Angular' + VERSION.major;
-
+  checked = false
 }
-
-//data down: parent component tuong tac voi children component (input binding)
-//event up: children component tuong tac voi parent component
