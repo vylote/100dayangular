@@ -1,1 +1,34 @@
-<app-hello></app-hello>
+{{ name }}
+<!-- expression -->
+ <!-- giống với toString()  -->
+  <!-- String interpolation -->
+<p>{{ user }}</p>
+<p>{{ user.name }}</p>
+<p>{{ user.age }}</p>
+
+<input [type]="inputType" [value]="user.name">
+<!-- HTMLInputElement {
+  type: 'text',
+  value: 'a',
+  attributes: [],
+  ...
+} -->
+
+<!-- chia làm 2 kiểu: property [] và attribute binding -->
+
+<!-- cú pháp cho js thông thường -->
+
+<!-- <button type="button" id="btnClickMe">Click me</button>
+
+const btn = document.querySelector('#btnClickMe')
+
+btn.addEventListener('click', handler) -->
+
+<!-- cú pháp angular -->
+<button type="button" (click)="handler($event)">Click me</button>
+<br><br>
+<!-- two way databing (property + event binding) -->
+<input type="text" [(ngModel)]="name"/>
+<br><br>
+<!-- [(ngModel)] = [ngModel]="name"+(ngModelChange)="name = $event" (property + event binding) -->
+<input type="text" [ngModel]="name" (ngModelChange)="name = $event"/>
