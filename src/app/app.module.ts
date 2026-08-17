@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { ToggleComponent } from './toggle/toggle.component';
+import { FlexComponent } from './flex.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ToggleComponent
+    FlexComponent
   ],
   imports: [
     BrowserModule, FormsModule

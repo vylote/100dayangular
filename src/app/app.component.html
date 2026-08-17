@@ -1,18 +1,9 @@
-<p style="font-size: 2rem">{{ name }}</p>
-<input type="text" #nameInput [ngModel]="name" (ngModelChange)="name = $event" />
+<flex-container>
+  <button>Submit</button>
+  <button>Cancel</button>
+</flex-container>
 
-<div *ngIf="ShowLast" #chartContainer>rap chậm thôi</div> 
-
-<!-- toggleCom (template var) là instance của toggle component -->
-
-<button (click)="ShowLast = !ShowLast">Show Last</button>
-
-<app-toggle [(checked)]="checked"></app-toggle>
-<app-toggle [(checked)]="checked"></app-toggle>
-<app-toggle [(checked)]="checked"></app-toggle>
-
-<ng-container *ngIf="ShowLast">
-    <app-toggle [(checked)]="checked"></app-toggle>
-</ng-container>
-
-<button #toggleBtn>Toggle me</button>    
+<flex-container flexDirection="column">
+  <input type="email" />
+  <input type="password" />
+</flex-container>
