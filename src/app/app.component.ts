@@ -6,9 +6,5 @@ import { Component, ElementRef, Input, QueryList, VERSION, ViewChild, ViewChildr
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  name = 'VyLote'
-  questions = {
-    question1: true,
-    question2: false
-  }
+  navs = ['Active', 'Link 1', 'Link 2']
 }
