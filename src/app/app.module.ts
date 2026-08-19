@@ -6,17 +6,22 @@ import { FormsModule } from '@angular/forms';
 import { TabGroupComponent } from './tabs/tab-group.component';
 import { TabPanelComponent } from './tabs/tab-panel.component';
 import { TabBsGroupComponent } from './tabs/tab-bs-group.component';
+import { CounterComponent } from './counter/counter.component';
+import { TabContentDirective } from './tabs/tab-content.directive';
 
 @NgModule({
   declarations: [
-    AppComponent, TabGroupComponent, TabPanelComponent, TabBsGroupComponent
+    AppComponent,
+    TabGroupComponent,
+    TabPanelComponent,
+    TabBsGroupComponent,
+    CounterComponent,
+    TabContentDirective
   ],
-  imports: [
-    BrowserModule, FormsModule
-  ],
+  imports: [BrowserModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 
 // FormModule: làm việc với form directive
