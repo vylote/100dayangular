@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, QueryList, VERSION, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,5 @@ import { Component, ElementRef, Input, QueryList, VERSION, ViewChild, ViewChildr
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  navs = ['Active', 'Link 1', 'Link 2']
+  currentIndex = 0;
 }

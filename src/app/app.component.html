@@ -1,4 +1,7 @@
-<ng-template #linkTmpl let-l>
-  {{l}}
-</ng-template>
-<tab [navs]="navs" [linkTmpl]="linkTmpl"></tab>
+
+
+<tab-bs-group [(activeIndex)]="currentIndex">
+  <tab-panel title="em"></tab-panel>
+  <tab-panel title="đừng"></tab-panel>
+  <tab-panel title="khóc"></tab-panel>
+</tab-bs-group>
