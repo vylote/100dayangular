@@ -1,13 +1,31 @@
-<tab-bs-group [(activeIndex)]="currentIndex">
-  <tab-panel title="em">
-    <ng-template tabContent>
-      <app-counter></app-counter>
-    </ng-template>
-  </tab-panel>
-  <tab-panel title="đừng">
-    <app-counter></app-counter>
-  </tab-panel>
-  <tab-panel title="khóc">
-    <app-counter></app-counter>
-  </tab-panel>
-</tab-bs-group>
+<p> {{ newDate | date:'medium' }}</p>
+<p> {{ newDate | date:'shortDate' }}</p>
+<p> {{ newDate | date:'mediumDate' }}</p>
+<p> {{ newDate | date:'fullDate' }}</p>
+<p> {{ newDate | date:'yyyy/MM/dd' }}</p>
+
+<p>{{'VLT' | lowercase}}</p>
+<p>{{250 | currency}}</p>
+<p>{{100000 | currency: 'VND'}}</p>
+
+<!-- {{
+  user.name+" "+user.age+" "+user.class
+}}
+
+<p>{{ format(user) }}</p> -->
+
+<p>{{ user | formatUser:'para1'}}</p>
+
+full user list: 
+<ul>
+  <li *ngFor="let u of users">
+    {{u.name}} - {{u.age}}
+  </li>
+</ul>
+
+full user list adult pipe: 
+<ul>
+  <li *ngFor="let u of users | adult">
+    {{u.name}} - {{u.age}}
+  </li>
+</ul>

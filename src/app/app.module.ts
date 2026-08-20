@@ -3,20 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { TabGroupComponent } from './tabs/tab-group.component';
-import { TabPanelComponent } from './tabs/tab-panel.component';
-import { TabBsGroupComponent } from './tabs/tab-bs-group.component';
-import { CounterComponent } from './counter/counter.component';
-import { TabContentDirective } from './tabs/tab-content.directive';
+import { FormatUser } from './format-user-pipes';
+import { AdultPipe } from './adult.pipes';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TabGroupComponent,
-    TabPanelComponent,
-    TabBsGroupComponent,
-    CounterComponent,
-    TabContentDirective
+    AppComponent, FormatUser, AdultPipe
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
